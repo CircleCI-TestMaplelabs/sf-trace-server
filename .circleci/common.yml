@@ -250,18 +250,15 @@ workflows:
       - vulnerability-checker/scan:
           name: Check_Opensource_Vulnerabilities
           context: Build_Env_Vars
-          filters: *filters
           directory: ./sftrace-server
       - sfTraceServerPrometheusExporterCodeCheck:
           name: Static_Code_Check
           context: Build_Env_Vars
-          filters: *filters
           requires:
             - Check_Opensource_Vulnerabilities
       - sfTraceServerPrometheusExporterBuild:
-          name: Build_Docker_Prod
+          name: Build_Docker
           context: Build_Env_Vars
-          filters: *filters
           requires:
             - Static_Code_Check
             - Check_Opensource_Vulnerabilities
