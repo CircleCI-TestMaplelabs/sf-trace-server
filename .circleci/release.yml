@@ -228,7 +228,7 @@ jobs:
       - run:
           command: |         
             mv sftrace-server/metrics_collector/* sftrace-server/
-            ls -lrt sftrace-celery-server
+            ls -lrt sftrace-server
       - orbsdk/static_code_check:
           directory: sftrace-server
       - store_artifacts:
