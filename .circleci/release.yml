@@ -141,7 +141,7 @@ jobs:
             command: << pipeline.parameters.tag-gen-command >>
         - run:
             command: |
-              URL=https://${GITTOKEN}@github.com/snappyflow/helm-charts.git
+              URL=https://${GITTOKEN}@github.com/asraf-khan-ml/helm-charts.git
               echo "HELMURL=$URL" >> $BASH_ENV
               pwd
         - orbsdk/update_helm_charts:
@@ -149,7 +149,7 @@ jobs:
             gituser: "${GITUSER}"
             directory: "charts/sfapm-python3/charts/sftrace"
             imageversion: "${IMAGETAG}"
-            gitbranch: "master"
+            gitbranch: "control_path_snappy_master_6_9_23"
             helmurl: "${HELMURL}"   
   ### updateDevelopmentHelmCharts: This job updates the development branch of helm charts with updated docker image 
   ### tags. Operates on development branch.
@@ -161,7 +161,7 @@ jobs:
           command: << pipeline.parameters.tag-gen-command >>
       - run:
           command: |
-            URL=https://${GITTOKEN}@github.com/snappyflow/helm-charts.git
+            URL=https://${GITTOKEN}@github.com/asraf-khan-ml/helm-charts.git
             echo "HELMURL=$URL" >> $BASH_ENV
             pwd
       - orbsdk/update_helm_charts:
@@ -169,7 +169,7 @@ jobs:
           gituser: "${GITUSER}"
           directory: "charts/sfapm-python3/charts/sftrace"
           imageversion: "${IMAGETAG}"
-          gitbranch: "development"
+          gitbranch: "control_path_snappy_dev_4_9_23"
           helmurl: "${HELMURL}"                
   
   ### reTagSubcomponents: This job updates the docker image tags for all the sub component 
