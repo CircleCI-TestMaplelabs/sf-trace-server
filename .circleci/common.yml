@@ -3,7 +3,7 @@ version: 2.1
 ### Import required orbs
 orbs:
   maven: circleci/maven@1.2.0
-  orbsdk: snappyflow/orbsdk@1.9.51
+  orbsdk: snappyflow/orbsdk@1.9.67
   vulnerability-checker: whitesource/vulnerability-checker@19.10.1
 
 ### Custom job executor
@@ -23,7 +23,10 @@ executors:
 parameters:
   run-sfTraceServer-job:
     type: boolean
-    default: false       
+    default: false
+  run-sfTraceServerPrometheusExporter-job:  
+    type: boolean
+    default: false         
   tag-gen-command:
     type: string
     default: |
